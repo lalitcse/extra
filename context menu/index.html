@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="src/svgDynamicDirectionalPath.js" charset="utf-8"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="click">
+        
+        <div><a href="#" class="click_item showClick1 show">Option no. 1</a></div>
+        <div></div><a href="#" class="click_item showClick2 show">Option no. 2</a></div>
+        
+    </div>
+
+    <div class="hidden1" id="mydiv"> 
+        <h1 class="body1">Option no. 1</h1> 
+        <p class="body1">This is option number 1</p>
+    </div>
+
+    <div class="hidden2" id="mydiv1"> 
+        <h1 class="body1">Option no. 2</h1> 
+        <p class="body1">This is option number 2</p>
+    </div>
+    
+    <script>
+     $(function () {
+        $('.showClick1').click(function () {
+        $('.hidden1').show();
+     });
+    });
+    $(function () {
+        $('.showClick2').click(function () {
+        $('.hidden2').show(function(){
+        if (confirm('Do you want to connect option no.1 and option no. 2')) {
+            dynamicPath(mydiv,mydiv1);
+        } else {
+            alert('You have selected not to connect option 1 and option 2!');
+        }
+      });
+     });
+    });
+    </script>
+    <script src="./js/main1.js"></script>
+</body>
+</html>
